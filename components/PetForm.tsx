@@ -59,7 +59,7 @@ export default function PetForm({
                         className="text-gray-500 hover:text-gray-700 flex items-center gap-2 mb-4"
                     >
                         <ArrowLeft size={20} />
-                        Back to Dashboard
+                        Volver al Panel
                     </Link>
                     <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
                 </div>
@@ -71,7 +71,7 @@ export default function PetForm({
                     <div className="grid gap-6 md:grid-cols-2">
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">
-                                Pet Name
+                                Nombre de la Mascota
                             </label>
                             <input
                                 required
@@ -81,12 +81,12 @@ export default function PetForm({
                                     setFormData({ ...formData, name: e.target.value })
                                 }
                                 className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition"
-                                placeholder="e.g. Max"
+                                placeholder="Ej: Rocky"
                             />
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">
-                                Owner Name
+                                Nombre del Dueño
                             </label>
                             <input
                                 required
@@ -96,14 +96,14 @@ export default function PetForm({
                                     setFormData({ ...formData, ownerName: e.target.value })
                                 }
                                 className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition"
-                                placeholder="Your Name"
+                                placeholder="Tu Nombre"
                             />
                         </div>
                     </div>
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Phone Number
+                            Teléfono de Contacto
                         </label>
                         <input
                             required
@@ -113,16 +113,16 @@ export default function PetForm({
                                 setFormData({ ...formData, phone: e.target.value })
                             }
                             className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition"
-                            placeholder="+1 234 567 8900"
+                            placeholder="+56 9 1234 5678"
                         />
                         <p className="mt-1 text-xs text-gray-500">
-                            This will be visible to anyone who scans the tag.
+                            Este número será visible para quien escanee la etiqueta.
                         </p>
                     </div>
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Address / Location
+                            Dirección / Ubicación
                         </label>
                         <textarea
                             required
@@ -131,13 +131,16 @@ export default function PetForm({
                                 setFormData({ ...formData, address: e.target.value })
                             }
                             className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition h-24 resize-none"
-                            placeholder="e.g. 123 Main St, Springfield"
+                            placeholder="Calle, Número, Comuna, Ciudad"
                         />
+                        <p className="mt-1 text-xs text-gray-500">
+                            Ej: Av. Providencia 1234, Providencia, Santiago
+                        </p>
                     </div>
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Additional Notes (Optional)
+                            Notas Adicionales (Opcional)
                         </label>
                         <textarea
                             value={formData.notes}
@@ -145,7 +148,7 @@ export default function PetForm({
                                 setFormData({ ...formData, notes: e.target.value })
                             }
                             className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition h-20 resize-none"
-                            placeholder="Medical needs, allergies, etc."
+                            placeholder="Necesidades médicas, alergias, recompensas, etc."
                         />
                     </div>
 
