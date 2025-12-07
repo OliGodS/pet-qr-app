@@ -16,8 +16,8 @@ function AddPetContent() {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (!currentUser) {
-                // If there's an ID, keep it in the URL when redirecting to login (optional improvement for later)
-                router.push("/login");
+                const returnUrl = prefilledId ? `/dashboard/add?id=${prefilledId}` : "/dashboard/add";
+                router.push(`/login?returnUrl=${encodeURIComponent(returnUrl)}`);
             } else {
                 setUser(currentUser);
             }

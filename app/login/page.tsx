@@ -1,17 +1,19 @@
 "use client";
 
 import { signInWithGoogle } from "@/lib/firebase";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState, Suspense } from "react";
 
-export default function LoginPage() {
+function LoginContent() {
     const router = useRouter();
+    const searchParams = useSearchParams();
     const [error, setError] = useState("");
+    const returnUrl = searchParams.get("returnUrl") || "/dashboard";
 
     const handleLogin = async () => {
         try {
             await signInWithGoogle();
-            router.push("/dashboard");
+            router.push(returnUrl);
         } catch (err) {
             setError("Error al iniciar sesión. Por favor intenta de nuevo.");
             console.error(err);
@@ -44,5 +46,13 @@ export default function LoginPage() {
                 </button>
             </div>
         </div>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <LoginContent />
+        </Suspense>
     );
 }
